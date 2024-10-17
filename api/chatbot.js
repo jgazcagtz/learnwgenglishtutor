@@ -12,7 +12,13 @@ module.exports = async (req, res) => {
             },
             body: JSON.stringify({
                 model: 'gpt-3.5-turbo',
-                messages: [{ role: 'user', content: message }]
+                messages: [
+                    {
+                        role: 'system',
+                        content: 'You are an AI English tutor. Your role is to help users improve their English language skills by providing clear explanations, examples, and guidance on grammar, vocabulary, pronunciation, and conversation practice. Use simple language, offer detailed answers when asked about grammar or word usage, and encourage users to practice by asking follow-up questions. Correct any language mistakes politely and provide helpful feedback for learning.'
+                    },
+                    { role: 'user', content: message }
+                ]
             })
         });
 
