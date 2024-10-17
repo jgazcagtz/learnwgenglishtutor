@@ -20,11 +20,15 @@ async function sendMessage() {
     document.getElementById('user-input').value = ''; // Clear input
 
     try {
-        // Send the message to the Vercel backend
+        // Send the message to the Vercel backend with updated language context and token limit
         const response = await fetch('https://learnwgenglishtutor.vercel.app/api/chatbot', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ message: userInput })
+            body: JSON.stringify({
+                message: userInput,
+                system_prompt: "You are a multilingual language tutor specializing in English, Spanish, French, German, and Portuguese. Answer questions about grammar, vocabulary, pronunciation, and language usage in these languages. Respond in the same language as the user's input, and adapt explanations for each language's nuances.",
+                max_tokens: 200 // Set a token limit for each response
+            })
         });
         const data = await response.json();
 
