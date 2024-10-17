@@ -21,7 +21,7 @@ body {
     overflow: hidden;
     animation: fadeIn 1s ease-out forwards;
     position: relative; /* To position the banner correctly */
-    padding-top: 30px; /* Reduced from 50px to decrease space */
+    padding-top: 50px; /* Adjust based on banner height */
 }
 
 /* Fade In Animation */
@@ -58,7 +58,7 @@ body {
 /* Header Styling */
 header {
     background-color: #000000;
-    padding: 15px 20px; /* Reduced padding for tighter spacing */
+    padding: 20px;
     text-align: center;
     border-bottom: 1px solid #333;
     animation: slideDown 0.6s ease-out forwards;
@@ -95,7 +95,7 @@ header p {
 .chat-log {
     padding: 15px;
     overflow-y: auto;
-    height: 60vh; /* Changed from fixed height to relative height */
+    height: 400px;
     border-top: 1px solid #333;
     border-bottom: 1px solid #333;
     background-color: #1a1a1a;
@@ -230,7 +230,7 @@ footer a:hover {
 }
 
 /* Tutorial Button Styling */
-.animated-button {
+.tutorial-button {
     background-color: #f2c718;
     color: #000;
     border: none;
@@ -242,12 +242,12 @@ footer a:hover {
     font-family: 'League Spartan', sans-serif;
 }
 
-.animated-button:hover {
+.tutorial-button:hover {
     background-color: #d3ab15;
     transform: translateY(-2px);
 }
 
-.animated-button:active {
+.tutorial-button:active {
     transform: translateY(0);
 }
 
@@ -327,7 +327,7 @@ footer a:hover {
 /* Responsive Design */
 @media (max-width: 500px) {
     .chat-log {
-        height: 50vh; /* Adjusted for better fit */
+        height: 300px;
     }
 
     header h1 {
@@ -351,44 +351,9 @@ footer a:hover {
         font-size: 0.75em;
     }
 
-    .animated-button {
+    .tutorial-button {
         padding: 6px 10px;
         font-size: 0.7em;
-    }
-}
-
-/* Orientation-Based Responsive Design */
-@media (orientation: landscape) {
-    body {
-        padding-top: 20px; /* Further reduce padding for landscape */
-    }
-
-    .chat-log {
-        height: 70vh; /* Increase height for landscape */
-    }
-
-    header {
-        padding: 10px 15px; /* Reduce padding in landscape */
-    }
-
-    header h1 {
-        font-size: 1.6em;
-    }
-
-    .input-area {
-        padding: 8px;
-    }
-
-    input[type="text"] {
-        padding: 8px;
-    }
-
-    button {
-        padding: 8px 16px;
-    }
-
-    footer {
-        padding: 8px;
     }
 }
 
@@ -413,7 +378,7 @@ footer a:hover {
 
 /* Button Ripple Effect */
 button::after,
-.animated-button::after {
+.tutorial-button::after {
     content: "";
     position: absolute;
     width: 100%;
@@ -427,14 +392,14 @@ button::after,
 }
 
 button:active::after,
-.animated-button:active::after {
+.tutorial-button:active::after {
     opacity: 1;
     transition: opacity 0.1s;
 }
 
 /* Ensure buttons have position relative for the ripple effect */
 button,
-.animated-button {
+.tutorial-button {
     position: relative;
     overflow: hidden;
 }
