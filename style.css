@@ -447,7 +447,7 @@ body {
 
 .moving-banner p {
     display: inline-block;
-    animation: moveBanner 33s linear infinite; /* Increased duration for slower speed */
+    animation: moveBanner 90s linear infinite; /* Increased duration for slower speed */
     font-size: 1em;
 }
 
