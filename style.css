@@ -8,6 +8,7 @@
 /* Import League Spartan */
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap');
 
+/* Body Styling */
 body {
     font-family: 'League Spartan', sans-serif;
     background-color: #000;
@@ -19,13 +20,17 @@ body {
     color: #f2c718;
     overflow: hidden;
     animation: fadeIn 1s ease-out forwards;
+    position: relative; /* To position the banner correctly */
+    padding-top: 50px; /* Adjust based on banner height */
 }
 
+/* Fade In Animation */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
+/* Chat Container */
 .chat-container {
     display: flex;
     flex-direction: column;
@@ -39,8 +44,10 @@ body {
     transform: translateY(-50px);
     opacity: 0;
     animation: slideUp 0.6s ease-out forwards;
+    z-index: 1; /* Ensure it sits above the banner */
 }
 
+/* Slide Up Animation */
 @keyframes slideUp {
     to {
         transform: translateY(0);
@@ -48,6 +55,7 @@ body {
     }
 }
 
+/* Header Styling */
 header {
     background-color: #000000;
     padding: 20px;
@@ -56,11 +64,13 @@ header {
     animation: slideDown 0.6s ease-out forwards;
 }
 
+/* Slide Down Animation */
 @keyframes slideDown {
     from { transform: translateY(-20px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
 
+/* Header Text */
 header h1 {
     font-size: 1.8em;
     margin-bottom: 5px;
@@ -75,11 +85,13 @@ header p {
     animation-fill-mode: forwards;
 }
 
+/* Fade In Text Animation */
 @keyframes fadeInText {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
+/* Chat Log Styling */
 .chat-log {
     padding: 15px;
     overflow-y: auto;
@@ -90,6 +102,7 @@ header p {
     animation: fadeIn 1s ease-out forwards;
 }
 
+/* Message Styling */
 .chat-log .message {
     margin: 10px 0;
     padding: 10px 15px;
@@ -101,6 +114,7 @@ header p {
     animation: messageFadeIn 0.5s forwards;
 }
 
+/* Message Fade In Animation */
 @keyframes messageFadeIn {
     to {
         opacity: 1;
@@ -108,6 +122,7 @@ header p {
     }
 }
 
+/* User Message Styling */
 .user-message {
     background-color: #f2c718;
     color: #000;
@@ -117,6 +132,7 @@ header p {
     animation: slideInRight 0.5s ease-out forwards;
 }
 
+/* Bot Message Styling */
 .bot-message {
     background-color: #333333;
     color: #f2c718;
@@ -126,16 +142,19 @@ header p {
     animation: slideInLeft 0.5s ease-out forwards;
 }
 
+/* Slide In Right Animation */
 @keyframes slideInRight {
     from { transform: translateX(50px); opacity: 0; }
     to { transform: translateX(0); opacity: 1; }
 }
 
+/* Slide In Left Animation */
 @keyframes slideInLeft {
     from { transform: translateX(-50px); opacity: 0; }
     to { transform: translateX(0); opacity: 1; }
 }
 
+/* Input Area Styling */
 .input-area {
     display: flex;
     padding: 10px;
@@ -145,6 +164,7 @@ header p {
 }
 
 input[type="text"] {
+    font-family: 'League Spartan', sans-serif;
     flex-grow: 1;
     padding: 10px;
     border: 1px solid #333;
@@ -183,6 +203,7 @@ button:active {
     transform: translateY(0);
 }
 
+/* Footer Styling */
 footer {
     display: flex;
     justify-content: space-between;
@@ -208,6 +229,7 @@ footer a:hover {
     color: #d3ab15;
 }
 
+/* Tutorial Button Styling */
 .tutorial-button {
     background-color: #f2c718;
     color: #000;
@@ -388,3 +410,44 @@ button,
     transform: translateY(0);
 }
 
+/* Moving Banner Styling */
+.moving-banner {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #f2c718;
+    color: #000;
+    text-align: center;
+    padding: 10px 0;
+    font-family: 'League Spartan', sans-serif;
+    z-index: 1000; /* Ensure it stays on top */
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.moving-banner p {
+    display: inline-block;
+    animation: moveBanner 33s linear infinite; /* Increased duration for slower speed */
+    font-size: 1em;
+}
+
+.moving-banner a {
+    color: #000;
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.moving-banner a:hover {
+    color: #d3ab15;
+}
+
+/* Move Banner Animation */
+@keyframes moveBanner {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
