@@ -2,15 +2,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LearnWG English Tutor 🌍</title>
+    <title>LearnWG Language Tutor 🌍</title>
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Moving Banner -->
+    <div class="moving-banner">
+        <p>🌐 Welcome to LearnWG Language Tutor! 🌐
+📚 We support English, Spanish, French, German, and Portuguese! 🎒
+📘 Please check the User Guide for tips on getting started and making the most of your learning journey! 📖 ¡Bienvenido al Tutor de Idiomas de LearnWG! 📖
+📚 ¡Ofrecemos soporte para inglés, español, francés, alemán y portugués! 🎒
+📙 ¡Consulta la Guía del Usuario para consejos sobre cómo comenzar y aprovechar al máximo tu aprendizaje!🌐
+
+Visita <a href="https://learnwithgeorge.site" target="_blank">LearnWithGeorge.site</a>🚀
+        </p>
+    </div>
+
     <div class="chat-container">
         <header>
-            <h1>LearnWG English Tutor 🤖</h1>
-            <p>Your AI English Companion 📚</p>
+            <h1>LearnWG Language Tutor 🤖</h1>
+            <p>Your AI Language Companion 📚</p>
         </header>
         
         <div id="chat-log" class="chat-log">
@@ -23,7 +35,7 @@
         </div>
 
         <footer>
-            <button class="tutorial-button" onclick="openTutorial()">Tutorial 📘</button>
+            <button class="tutorial-button" onclick="openTutorial()">User Guide 📘</button>
             <p>&copy; <span id="year"></span> <a href="https://learnwithgeorge.site" target="_blank">LearnWG</a></p>
         </footer>
     </div>
@@ -32,17 +44,39 @@
     <div id="tutorial-modal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeTutorial()">&times;</span>
-            <h2>LearnWG English Tutor 📘</h2>
-            <p>Welcome to the LearnWG English Tutor! Here's how to get started:</p>
-            <ul>
-                <li>💬 <strong>Ask any question</strong> related to English grammar, vocabulary, or pronunciation!</li>
-                <li>📖 <strong>Get detailed explanations</strong> and examples tailored to your queries.</li>
-                <li>🔍 <strong>Practice conversations</strong> by typing sentences, and receive AI-generated responses.</li>
-            </ul>
-            <p>Type a question below and hit "Send" to start learning! 🎉</p>
+
+            <!-- English Section -->
+            <section class="tutorial-section">
+                <h2>LearnWG Language Tutor 📘</h2>
+                <p>Welcome to the LearnWG Language Tutor! This AI assistant supports English, Spanish, French, German, and Portuguese to help you learn multiple languages with ease. Here's how to get started:</p>
+                <ul>
+                    <li>💬 <strong>Ask any question</strong> related to grammar, vocabulary, pronunciation, or language usage in any of the supported languages.</li>
+                    <li>📖 <strong>Get detailed explanations</strong> and examples tailored to each language's unique grammar and nuances.</li>
+                    <li>🔍 <strong>Practice conversations</strong> by typing sentences, and receive AI-generated responses in the same language.</li>
+                </ul>
+                <p>Type a question below and hit "Send" to start learning with the LearnWG Language Tutor! 🎉</p>
+            </section>
+
+            <hr>
+
+            <!-- Spanish Section -->
+            <section class="tutorial-section">
+                <h2>Tutor de Idiomas de LearnWG 📘</h2>
+                <p>¡Bienvenido al Tutor de Idiomas de LearnWG! Este asistente de IA admite inglés, español, francés, alemán y portugués para ayudarte a aprender varios idiomas con facilidad. Aquí te mostramos cómo empezar:</p>
+                <ul>
+                    <li>💬 <strong>Haz cualquier pregunta</strong> relacionada con la gramática, el vocabulario, la pronunciación o el uso del idioma en cualquiera de los idiomas admitidos.</li>
+                    <li>📖 <strong>Obtén explicaciones detalladas</strong> y ejemplos adaptados a la gramática y particularidades de cada idioma.</li>
+                    <li>🔍 <strong>Practica conversaciones</strong> escribiendo oraciones y recibe respuestas generadas por IA en el mismo idioma.</li>
+                </ul>
+                <p>Escribe una pregunta abajo y presiona "Enviar" para comenzar a aprender con el Tutor de Idiomas de LearnWG! 🎉</p>
+            </section>
         </div>
     </div>
 
     <script src="script.js"></script>
+    <script>
+        // Set the current year in the footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
