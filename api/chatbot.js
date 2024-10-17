@@ -1,10 +1,9 @@
-const fetch = require('node-fetch');
-
 module.exports = async (req, res) => {
-    const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+    const OPENAI_API_KEY = process.env.OPENAI_API_KEY; // Environment variable for API key security
     const { message } = req.body;
 
     try {
+        // Make a request to OpenAI API using the native fetch API
         const openAIResponse = await fetch('https://api.openai.com/v1/chat/completions', {
             method: 'POST',
             headers: {
@@ -17,9 +16,11 @@ module.exports = async (req, res) => {
             })
         });
 
+        // Parse the response from OpenAI
         const data = await openAIResponse.json();
         const botMessage = data.choices[0].message.content;
 
+        // Send bot's response back to the frontend
         res.status(200).json({ response: botMessage });
     } catch (error) {
         console.error('Error in chatbot function:', error);
