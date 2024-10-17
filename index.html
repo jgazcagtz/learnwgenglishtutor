@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnWG English Tutor 🌍</title>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="chat-container">
+        <header>
+            <h1>LearnWG English Tutor 🤖</h1>
+            <p>Your AI English Companion 📚</p>
+        </header>
+        
+        <div id="chat-log" class="chat-log">
+            <!-- Chat messages will appear here -->
+        </div>
+        
+        <div class="input-area">
+            <input type="text" id="user-input" placeholder="Type your question here... ✍️" />
+            <button onclick="sendMessage()">Send 🚀</button>
+        </div>
+
+        <footer>
+            <button class="tutorial-button" onclick="openTutorial()">Tutorial 📘</button>
+            <p>&copy; <span id="year"></span> <a href="https://learnwithgeorge.site" target="_blank">LearnWG</a></p>
+        </footer>
+    </div>
+
+    <!-- Tutorial Modal -->
+    <div id="tutorial-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeTutorial()">&times;</span>
+            <h2>LearnWG English Tutor 📘</h2>
+            <p>Welcome to the LearnWG English Tutor! Here's how to get started:</p>
+            <ul>
+                <li>💬 <strong>Ask any question</strong> related to English grammar, vocabulary, or pronunciation!</li>
+                <li>📖 <strong>Get detailed explanations</strong> and examples tailored to your queries.</li>
+                <li>🔍 <strong>Practice conversations</strong> by typing sentences, and receive AI-generated responses.</li>
+            </ul>
+            <p>Type a question below and hit "Send" to start learning! 🎉</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
