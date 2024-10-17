@@ -18,7 +18,7 @@ async function sendMessage() {
     document.getElementById('user-input').value = ''; // Clear input
 
     try {
-        const response = await fetch('https://placeholder-url.vercel.app/api/chatbot', {
+        const response = await fetch('https://learnwgenglishtutor.vercel.app/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ message: userInput })
