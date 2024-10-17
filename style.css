@@ -348,7 +348,6 @@ footer a:hover {
 .close:hover {
     color: #d3ab15;
 }
-
 /* Responsive Design */
 @media (max-width: 500px) {
     /* Reduce padding-top in body to decrease space between banner and header */
