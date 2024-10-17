@@ -6,6 +6,8 @@
 }
 
 /* Import League Spartan */
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap');
+
 body {
     font-family: 'League Spartan', sans-serif;
     background-color: #000;
@@ -15,6 +17,13 @@ body {
     height: 100vh;
     margin: 0;
     color: #f2c718;
+    overflow: hidden;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .chat-container {
@@ -24,24 +33,51 @@ body {
     max-width: 400px;
     background-color: #1a1a1a;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
     overflow: hidden;
     color: #f2c718;
+    transform: translateY(-50px);
+    opacity: 0;
+    animation: slideUp 0.6s ease-out forwards;
+}
+
+@keyframes slideUp {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 header {
     background-color: #000000;
     padding: 20px;
     text-align: center;
+    border-bottom: 1px solid #333;
+    animation: slideDown 0.6s ease-out forwards;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
 header h1 {
-    font-size: 1.5em;
+    font-size: 1.8em;
     margin-bottom: 5px;
+    animation: fadeInText 1s ease-out forwards;
 }
 
 header p {
     font-size: 0.9em;
+    animation: fadeInText 1s ease-out forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInText {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .chat-log {
@@ -51,14 +87,25 @@ header p {
     border-top: 1px solid #333;
     border-bottom: 1px solid #333;
     background-color: #1a1a1a;
+    animation: fadeIn 1s ease-out forwards;
 }
 
 .chat-log .message {
     margin: 10px 0;
-    padding: 10px;
+    padding: 10px 15px;
     border-radius: 8px;
     font-size: 0.95em;
     line-height: 1.4;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: messageFadeIn 0.5s forwards;
+}
+
+@keyframes messageFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .user-message {
@@ -66,6 +113,8 @@ header p {
     color: #000;
     text-align: right;
     border-radius: 8px 8px 0 8px;
+    align-self: flex-end;
+    animation: slideInRight 0.5s ease-out forwards;
 }
 
 .bot-message {
@@ -73,18 +122,29 @@ header p {
     color: #f2c718;
     text-align: left;
     border-radius: 8px 8px 8px 0;
+    align-self: flex-start;
+    animation: slideInLeft 0.5s ease-out forwards;
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
 }
 
 .input-area {
-  font-family: 'League Spartan', sans-serif;
     display: flex;
     padding: 10px;
     background-color: #000;
     border-top: 1px solid #333;
+    animation: fadeIn 1s ease-out forwards;
 }
 
 input[type="text"] {
-  font-family: 'League Spartan', sans-serif;
     flex-grow: 1;
     padding: 10px;
     border: 1px solid #333;
@@ -93,10 +153,16 @@ input[type="text"] {
     background-color: #1a1a1a;
     color: #f2c718;
     margin-right: 10px;
+    transition: border 0.3s, background-color 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #f2c718;
+    background-color: #262626;
+    outline: none;
 }
 
 button {
-  font-family: 'League Spartan', sans-serif;
     padding: 10px 20px;
     font-size: 1em;
     color: #000;
@@ -104,22 +170,27 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.2s;
+    font-family: 'League Spartan', sans-serif;
 }
 
 button:hover {
     background-color: #d3ab15;
+    transform: translateY(-2px);
 }
 
-/* Footer Styles */
+button:active {
+    transform: translateY(0);
+}
+
 footer {
-  font-family: 'League Spartan', sans-serif;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #1a1a1a;
     padding: 10px;
     border-top: 1px solid #333;
+    animation: fadeIn 1s ease-out forwards;
 }
 
 footer p {
@@ -145,18 +216,24 @@ footer a:hover {
     font-size: 0.8em;
     border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.2s;
+    font-family: 'League Spartan', sans-serif;
 }
 
 .tutorial-button:hover {
     background-color: #d3ab15;
+    transform: translateY(-2px);
+}
+
+.tutorial-button:active {
+    transform: translateY(0);
 }
 
 /* Modal Styles */
 .modal {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 10;
     left: 0;
     top: 0;
     width: 100%;
@@ -164,6 +241,11 @@ footer a:hover {
     background-color: rgba(0, 0, 0, 0.7);
     justify-content: center;
     align-items: center;
+    animation: fadeInModal 0.3s forwards;
+}
+
+.modal.show {
+    display: flex;
 }
 
 .modal-content {
@@ -173,14 +255,27 @@ footer a:hover {
     width: 90%;
     max-width: 400px;
     color: #f2c718;
+    position: relative;
+    transform: scale(0.8);
+    opacity: 0;
+    animation: modalScaleIn 0.3s forwards;
+}
+
+@keyframes modalScaleIn {
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 .modal-content h2 {
     margin-bottom: 10px;
+    animation: fadeInText 0.5s forwards;
 }
 
 .modal-content p {
     margin-bottom: 10px;
+    animation: fadeInText 0.5s 0.2s forwards;
 }
 
 .modal-content ul {
@@ -190,6 +285,7 @@ footer a:hover {
 
 .modal-content ul li {
     margin: 5px 0;
+    animation: fadeInText 0.5s 0.4s forwards;
 }
 
 .close {
@@ -213,7 +309,7 @@ footer a:hover {
     }
 
     header h1 {
-        font-size: 1.3em;
+        font-size: 1.5em;
     }
 
     header p {
@@ -228,4 +324,67 @@ footer a:hover {
         font-size: 0.9em;
         padding: 8px 16px;
     }
+
+    footer p {
+        font-size: 0.75em;
+    }
+
+    .tutorial-button {
+        padding: 6px 10px;
+        font-size: 0.7em;
+    }
 }
+
+/* Smooth Scroll for Chat Log */
+.chat-log {
+    scroll-behavior: smooth;
+}
+
+/* Scrollbar Styling */
+.chat-log::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-log::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+.chat-log::-webkit-scrollbar-thumb {
+    background-color: #f2c718;
+    border-radius: 4px;
+}
+
+/* Button Ripple Effect */
+button::after,
+.tutorial-button::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background: rgba(255, 255, 255, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+button:active::after,
+.tutorial-button:active::after {
+    opacity: 1;
+    transition: opacity 0.1s;
+}
+
+/* Ensure buttons have position relative for the ripple effect */
+button,
+.tutorial-button {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Additional Animations for Modal Content */
+.modal-content ul li {
+    opacity: 1;
+    transform: translateY(0);
+}
+
