@@ -31,7 +31,7 @@ body {
 }
 
 /* Chat Container */
-.chat-container {
+. chat-container {
     display: flex;
     flex-direction: column;
     width: 90%;
@@ -100,6 +100,7 @@ header p {
     border-bottom: 1px solid #333;
     background-color: #1a1a1a;
     animation: fadeIn 1s ease-out forwards;
+    scroll-behavior: smooth; /* Smooth Scroll for Chat Log */
 }
 
 /* Message Styling */
@@ -192,6 +193,28 @@ button {
     cursor: pointer;
     transition: background 0.3s, transform 0.2s;
     font-family: 'League Spartan', sans-serif;
+    position: relative; /* For ripple effect */
+    overflow: hidden; /* For ripple effect */
+}
+
+button::after,
+.tutorial-button::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background: rgba(255, 255, 255, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+button:active::after,
+.tutorial-button:active::after {
+    opacity: 1;
+    transition: opacity 0.1s;
 }
 
 button:hover {
@@ -240,6 +263,8 @@ footer a:hover {
     cursor: pointer;
     transition: background 0.3s, transform 0.2s;
     font-family: 'League Spartan', sans-serif;
+    position: relative; /* For ripple effect */
+    overflow: hidden; /* For ripple effect */
 }
 
 .tutorial-button:hover {
@@ -326,10 +351,23 @@ footer a:hover {
 
 /* Responsive Design */
 @media (max-width: 500px) {
+    /* Reduce padding-top in body to decrease space between banner and header */
+    body {
+        padding-top: 30px; /* Adjusted from 50px to 30px */
+        overflow-y: auto; /* Changed from hidden to auto */
+    }
+
+    /* Reduce the padding of the moving-banner for better fit */
+    .moving-banner {
+        padding: 5px 0; /* Adjusted from 10px 0 to 5px 0 */
+    }
+
+    /* Adjust chat-log height for smaller screens */
     .chat-log {
         height: 300px;
     }
 
+    /* Adjust header font sizes for better fit */
     header h1 {
         font-size: 1.5em;
     }
@@ -338,6 +376,7 @@ footer a:hover {
         font-size: 0.8em;
     }
 
+    /* Adjust input and button sizes */
     input[type="text"] {
         font-size: 0.9em;
     }
@@ -347,19 +386,26 @@ footer a:hover {
         padding: 8px 16px;
     }
 
+    /* Adjust footer text size */
     footer p {
         font-size: 0.75em;
     }
 
+    /* Adjust tutorial button size */
     .tutorial-button {
         padding: 6px 10px;
         font-size: 0.7em;
     }
+
+    /* Optional: Adjust the height of the chat-container to better fit mobile screens */
+    .chat-container {
+        height: calc(100vh - 80px); /* Adjust based on new padding and banner height */
+    }
 }
 
-/* Smooth Scroll for Chat Log */
-.chat-log {
-    scroll-behavior: smooth;
+/* Ensure the body doesn't overflow vertically on mobile devices */
+body {
+    overflow-y: auto; /* Changed from hidden to auto */
 }
 
 /* Scrollbar Styling */
@@ -377,32 +423,7 @@ footer a:hover {
 }
 
 /* Button Ripple Effect */
-button::after,
-.tutorial-button::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    background: rgba(255, 255, 255, 0.2);
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-button:active::after,
-.tutorial-button:active::after {
-    opacity: 1;
-    transition: opacity 0.1s;
-}
-
-/* Ensure buttons have position relative for the ripple effect */
-button,
-.tutorial-button {
-    position: relative;
-    overflow: hidden;
-}
+/* Ensured buttons have position relative and overflow hidden above */
 
 /* Additional Animations for Modal Content */
 .modal-content ul li {
