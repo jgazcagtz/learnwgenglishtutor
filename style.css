@@ -88,29 +88,36 @@ header p {
     to { opacity: 1; }
 }
 
-/* Chat Log */
+/* Chat Log Styling */
 .chat-log {
     padding: 15px;
     overflow-y: auto;
     height: 400px;
     border-top: 1px solid #333;
     border-bottom: 1px solid #333;
-    background-color: #1a1a1a;
+    background-color: #121212;
     animation: fadeIn 1s ease-out forwards;
     scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
+/* Message Styling */
 .chat-log .message {
-    margin: 10px 0;
-    padding: 10px 15px;
-    border-radius: 8px;
-    font-size: 0.95em;
+    max-width: 80%;
+    padding: 12px 18px;
+    border-radius: 18px;
+    font-size: 1em;
     line-height: 1.4;
     opacity: 0;
     transform: translateY(10px);
     animation: messageFadeIn 0.5s forwards;
+    word-wrap: break-word;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Message Fade In Animation */
 @keyframes messageFadeIn {
     to {
         opacity: 1;
@@ -118,33 +125,57 @@ header p {
     }
 }
 
-/* User and Bot Messages */
+/* User Message Styling */
 .user-message {
     background-color: #f2c718;
     color: #000;
-    text-align: right;
-    border-radius: 8px 8px 0 8px;
+    text-align: left;
+    border-radius: 18px 18px 0 18px;
     align-self: flex-end;
     animation: slideInRight 0.5s ease-out forwards;
+    margin-left: auto;
 }
 
+/* Bot Message Styling */
 .bot-message {
     background-color: #333333;
     color: #f2c718;
     text-align: left;
-    border-radius: 8px 8px 8px 0;
+    border-radius: 18px 18px 18px 0;
     align-self: flex-start;
     animation: slideInLeft 0.5s ease-out forwards;
+    margin-right: auto;
 }
 
+/* Slide In Right Animation */
 @keyframes slideInRight {
     from { transform: translateX(50px); opacity: 0; }
     to { transform: translateX(0); opacity: 1; }
 }
 
+/* Slide In Left Animation */
 @keyframes slideInLeft {
     from { transform: translateX(-50px); opacity: 0; }
     to { transform: translateX(0); opacity: 1; }
+}
+
+/* Message Timestamps */
+.message-timestamp {
+    font-size: 0.75em;
+    color: #888888;
+    margin-top: 4px;
+    text-align: right;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+/* Timestamp alignment for user and bot messages */
+.user-message .message-timestamp {
+    text-align: right;
+}
+
+.bot-message .message-timestamp {
+    text-align: left;
 }
 
 /* Input Area */
