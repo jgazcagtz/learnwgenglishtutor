@@ -16,12 +16,11 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
     color: #f2c718;
-    overflow: hidden;
+    overflow-y: auto;
     animation: fadeIn 1s ease-out forwards;
-    position: relative; /* To position the banner correctly */
-    padding-top: 50px; /* Adjust based on banner height */
+    position: relative;
+    padding-top: 50px;
 }
 
 /* Fade In Animation */
@@ -31,7 +30,7 @@ body {
 }
 
 /* Chat Container */
-. chat-container {
+.chat-container {
     display: flex;
     flex-direction: column;
     width: 90%;
@@ -44,7 +43,7 @@ body {
     transform: translateY(-50px);
     opacity: 0;
     animation: slideUp 0.6s ease-out forwards;
-    z-index: 1; /* Ensure it sits above the banner */
+    z-index: 1;
 }
 
 /* Slide Up Animation */
@@ -57,7 +56,7 @@ body {
 
 /* Header Styling */
 header {
-    background-color: #000000;
+    background-color: #000;
     padding: 20px;
     text-align: center;
     border-bottom: 1px solid #333;
@@ -70,7 +69,6 @@ header {
     to { transform: translateY(0); opacity: 1; }
 }
 
-/* Header Text */
 header h1 {
     font-size: 1.8em;
     margin-bottom: 5px;
@@ -85,13 +83,12 @@ header p {
     animation-fill-mode: forwards;
 }
 
-/* Fade In Text Animation */
 @keyframes fadeInText {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
-/* Chat Log Styling */
+/* Chat Log */
 .chat-log {
     padding: 15px;
     overflow-y: auto;
@@ -100,10 +97,9 @@ header p {
     border-bottom: 1px solid #333;
     background-color: #1a1a1a;
     animation: fadeIn 1s ease-out forwards;
-    scroll-behavior: smooth; /* Smooth Scroll for Chat Log */
+    scroll-behavior: smooth;
 }
 
-/* Message Styling */
 .chat-log .message {
     margin: 10px 0;
     padding: 10px 15px;
@@ -115,7 +111,6 @@ header p {
     animation: messageFadeIn 0.5s forwards;
 }
 
-/* Message Fade In Animation */
 @keyframes messageFadeIn {
     to {
         opacity: 1;
@@ -123,7 +118,7 @@ header p {
     }
 }
 
-/* User Message Styling */
+/* User and Bot Messages */
 .user-message {
     background-color: #f2c718;
     color: #000;
@@ -133,7 +128,6 @@ header p {
     animation: slideInRight 0.5s ease-out forwards;
 }
 
-/* Bot Message Styling */
 .bot-message {
     background-color: #333333;
     color: #f2c718;
@@ -143,19 +137,17 @@ header p {
     animation: slideInLeft 0.5s ease-out forwards;
 }
 
-/* Slide In Right Animation */
 @keyframes slideInRight {
     from { transform: translateX(50px); opacity: 0; }
     to { transform: translateX(0); opacity: 1; }
 }
 
-/* Slide In Left Animation */
 @keyframes slideInLeft {
     from { transform: translateX(-50px); opacity: 0; }
     to { transform: translateX(0); opacity: 1; }
 }
 
-/* Input Area Styling */
+/* Input Area */
 .input-area {
     display: flex;
     padding: 10px;
@@ -193,28 +185,8 @@ button {
     cursor: pointer;
     transition: background 0.3s, transform 0.2s;
     font-family: 'League Spartan', sans-serif;
-    position: relative; /* For ripple effect */
-    overflow: hidden; /* For ripple effect */
-}
-
-button::after,
-.tutorial-button::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    background: rgba(255, 255, 255, 0.2);
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-button:active::after,
-.tutorial-button:active::after {
-    opacity: 1;
-    transition: opacity 0.1s;
+    position: relative;
+    overflow: hidden;
 }
 
 button:hover {
@@ -226,7 +198,6 @@ button:active {
     transform: translateY(0);
 }
 
-/* Footer Styling */
 footer {
     display: flex;
     justify-content: space-between;
@@ -252,7 +223,7 @@ footer a:hover {
     color: #d3ab15;
 }
 
-/* Tutorial Button Styling */
+/* Tutorial Button */
 .tutorial-button {
     background-color: #f2c718;
     color: #000;
@@ -263,8 +234,8 @@ footer a:hover {
     cursor: pointer;
     transition: background 0.3s, transform 0.2s;
     font-family: 'League Spartan', sans-serif;
-    position: relative; /* For ripple effect */
-    overflow: hidden; /* For ripple effect */
+    position: relative;
+    overflow: hidden;
 }
 
 .tutorial-button:hover {
@@ -276,7 +247,7 @@ footer a:hover {
     transform: translateY(0);
 }
 
-/* Modal Styles */
+/* Modal */
 .modal {
     display: none;
     position: fixed;
@@ -348,89 +319,8 @@ footer a:hover {
 .close:hover {
     color: #d3ab15;
 }
-/* Responsive Design */
-@media (max-width: 500px) {
-    /* Reduce padding-top in body to decrease space between banner and header */
-    body {
-        padding-top: 30px; /* Adjusted from 50px to 30px */
-        overflow-y: auto; /* Changed from hidden to auto */
-    }
 
-    /* Reduce the padding of the moving-banner for better fit */
-    .moving-banner {
-        padding: 5px 0; /* Adjusted from 10px 0 to 5px 0 */
-    }
-
-    /* Adjust chat-log height for smaller screens */
-    .chat-log {
-        height: 300px;
-    }
-
-    /* Adjust header font sizes for better fit */
-    header h1 {
-        font-size: 1.5em;
-    }
-
-    header p {
-        font-size: 0.8em;
-    }
-
-    /* Adjust input and button sizes */
-    input[type="text"] {
-        font-size: 0.9em;
-    }
-
-    button {
-        font-size: 0.9em;
-        padding: 8px 16px;
-    }
-
-    /* Adjust footer text size */
-    footer p {
-        font-size: 0.75em;
-    }
-
-    /* Adjust tutorial button size */
-    .tutorial-button {
-        padding: 6px 10px;
-        font-size: 0.7em;
-    }
-
-    /* Optional: Adjust the height of the chat-container to better fit mobile screens */
-    .chat-container {
-        height: calc(100vh - 80px); /* Adjust based on new padding and banner height */
-    }
-}
-
-/* Ensure the body doesn't overflow vertically on mobile devices */
-body {
-    overflow-y: auto; /* Changed from hidden to auto */
-}
-
-/* Scrollbar Styling */
-.chat-log::-webkit-scrollbar {
-    width: 8px;
-}
-
-.chat-log::-webkit-scrollbar-track {
-    background: #1a1a1a;
-}
-
-.chat-log::-webkit-scrollbar-thumb {
-    background-color: #f2c718;
-    border-radius: 4px;
-}
-
-/* Button Ripple Effect */
-/* Ensured buttons have position relative and overflow hidden above */
-
-/* Additional Animations for Modal Content */
-.modal-content ul li {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Moving Banner Styling */
+/* Moving Banner */
 .moving-banner {
     position: fixed;
     top: 0;
@@ -440,14 +330,14 @@ body {
     text-align: center;
     padding: 10px 0;
     font-family: 'League Spartan', sans-serif;
-    z-index: 1000; /* Ensure it stays on top */
+    z-index: 1000;
     overflow: hidden;
     white-space: nowrap;
 }
 
 .moving-banner p {
     display: inline-block;
-    animation: moveBanner 95s linear infinite; /* Increased duration for slower speed */
+    animation: moveBanner 95s linear infinite;
     font-size: 1em;
 }
 
@@ -462,12 +352,53 @@ body {
     color: #d3ab15;
 }
 
-/* Move Banner Animation */
 @keyframes moveBanner {
-    0% {
-        transform: translateX(100%);
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    body {
+        padding-top: 30px;
     }
-    100% {
-        transform: translateX(-100%);
+    .chat-log {
+        height: 300px;
     }
+    header h1 {
+        font-size: 1.5em;
+    }
+    header p {
+        font-size: 0.8em;
+    }
+    input[type="text"] {
+        font-size: 0.9em;
+    }
+    button {
+        font-size: 0.9em;
+        padding: 8px 16px;
+    }
+    footer p {
+        font-size: 0.75em;
+    }
+    .tutorial-button {
+        padding: 6px 10px;
+        font-size: 0.7em;
+    }
+    .chat-container {
+        height: calc(100vh - 80px);
+    }
+}
+
+.chat-log::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-log::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+.chat-log::-webkit-scrollbar-thumb {
+    background-color: #f2c718;
+    border-radius: 4px;
 }
